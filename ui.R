@@ -3,9 +3,13 @@
 ##########
 library(rbokeh)
 library(shiny)
+library(shinydashboard)
 
-my_ui <- fluidPage(
-
+my_ui <- dashboardPage(
+  dashboardHeader(title = "Honey Production"),
+  dashboardSidebar(),
+  dashboardBody(),
+  skin = "yellow"
 )
 
 shinyUI(my_ui)
