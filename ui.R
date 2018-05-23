@@ -7,7 +7,6 @@ library(shinydashboard)
 
 my_ui <- dashboardPage(
   dashboardHeader(title = "Honey Production"),
-<<<<<<< HEAD
   dashboardSidebar(
     sidebarMenu(
       menuItem("Home", tabName = "home", icon = icon("home")),
@@ -17,9 +16,6 @@ my_ui <- dashboardPage(
       menuItem("Reference", tabName = "refer", icon = icon("graduation-cap"))
     )
   ),
-=======
-  dashboardSidebar(),
->>>>>>> 80017e415213120c82beed6ab70097c3646a372a
   dashboardBody(),
   skin = "yellow"
 )
