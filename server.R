@@ -8,7 +8,7 @@ library(leaflet)
 library(plotly)
 
 # Reads in data
-honey_production_data <- read.csv(file = "data/honeyproduction.csv", stringsAsFactors = FALSE)
+honey_production_data <- read.csv(file = "honeyproduction.csv", stringsAsFactors = FALSE)
 
 
 my_server <- function(input, output, session) {
