@@ -23,14 +23,19 @@ my_ui <- dashboardPage(
   dashboardBody(
     tabItems(
       tabItem(tabName = "home",
-              img(src = "bee.JPG"), # https://www.mybeeline.co/en/p/how-can-we-differentiate-100-pure-honey-and-adulterated-honey
+              img(src = "bee.JPG"),
               tags$br(),
               tags$br(),
               tags$br(),
+              
+              # Formats sidebar panels, the text of the panels and the intro text
               tags$head(tags$style((" #sidebar {
                                           background-color: #FFD54C;
-              }
-                                    "))),
+                                    }"))),
+              tags$head(tags$style("#sidebarText{color: black;
+                                        font-size: 18px;
+                                   font-family: 'Georgia';
+                                   }")),
               tags$head(tags$style((" #intro {color: black;
                                     font-size: 30px;
                                     text-align: center;
@@ -38,29 +43,54 @@ my_ui <- dashboardPage(
                                     }
                                     div.box-header {
                                     text-align: center;
-                                    }
-                        "))),
-              textOutput("intro"),
+                                    }"))),
+              
+              
+              box(id = "intro", width = 12, "Honey production in the U.S. has been on a steady decline 
+                  since 1998 and there isn't any sign of it stopping. Various 
+                  factors play into why this is the case but the biggest comes 
+                  down to the significant decline in honey bee colonies. Due to 
+                  this, the honey industry has experienced large reductions in 
+                  production and income. Our hope is that through this analysis 
+                  we can better explain the reasons why the industry is struggling
+                  and simultaneously raise awareness about a growing problem."),
+              tags$br(),
               tags$br(),
               tags$br(),
               tags$br(),
               sidebarLayout(
                 sidebarPanel(id = "sidebar",
                   h1(strong("Colony Collapse Disorder")),
-                  textOutput("colony_collapse"),
-                  tags$head(tags$style("#colony_collapse{color: black;
-                                        font-size: 18px;
-                                        font-family: 'Georgia';
-                                        }"))
+                  p(id = "sidebarText", 'CCD or Colony Collapse Disorder is defined as "The sudden mass disappearance
+                    of the majority of worker bees in a colony." In the winter of 2006 bee keepers
+                    reported an unsual high loss of bees from their hives yet found very few dead bees
+                    near the colony. Due to the substantal loss of worker bees hives that experienced CCD
+                    would die. Researchers have blamed The cause of CCD on anything from pesticides
+                    to the bees level of stress but the main reason is yet to be discoverd.')
                 ),
                 sidebarPanel(id = "sidebar",
                   h1(strong("Overall Questions")),
-                  textOutput("questions"),
-                  width = 8,
-                  tags$head(tags$style("#questions{color: black;
-                                        font-size: 18px;
-                                       font-family: 'Georgia';
-                                       }"))
+                  p(id = "sidebarText", "1.) How were honey prices and colonies affected by the Colony Collapse Disorder of 2006?",
+                      br(), br(), "2.) Which states had the largest fluctuation in honey yield?",
+                      br(), br(), "3.) Is there any relation between number of colonies and price per pound in a given year per state?",
+                      br(), br(), "4.) Is there a state that consistently produces more honey then the rest, if so why? How can other states replicate what this state is doing?"),
+                  width = 8
+                )
+              ),
+              sidebarLayout(
+                sidebarPanel(id = "sidebar",
+                  h1(strong("Background")),
+                  p(id = "sidebarText", ""),
+                  width = 8
+                ),
+                sidebarPanel(id = "sidebar",
+                  h1(strong("Resources")),
+                  img(src = "USDA.JPG", height = 55, width = 110),
+                  a("USDA Honey Production", href = "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Bee_and_Honey/"),
+                  br(),
+                  br(),
+                  img(src = "EPA.JPG", height = 55, width = 110),
+                  a("Colony Collapse Disorder", href = "https://www.epa.gov/pollinator-protection/colony-collapse-disorder")
                 )
               )
     )),
