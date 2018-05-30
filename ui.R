@@ -23,10 +23,44 @@ my_ui <- dashboardPage(
   dashboardBody(
     tabItems(
       tabItem(tabName = "home",
-              #img(src = "bee.JPG", width = 1300, height = 500)
-              img(src = "bee.JPG")
+              img(src = "bee.JPG"), # https://www.mybeeline.co/en/p/how-can-we-differentiate-100-pure-honey-and-adulterated-honey
+              tags$br(),
+              tags$br(),
+              tags$br(),
+              tags$head(tags$style((" #sidebar {
+                                          background-color: #FFD54C;
+              }
+                                    
+                                    "))),
+              tags$head(tags$style((" #intro {color: black;
+                                    font-size: 30px;
+                                    text-align: center;
+                                    font-family: 'Georgia';
+                                    }
+                                    div.box-header {
+                                    text-align: center;
+                                    }
+                        "))),
+              textOutput("intro"),
+              tags$br(),
+              tags$br(),
+              tags$br(),
+              sidebarLayout(
+                sidebarPanel(id = "sidebar",
+                  h1(strong("Colony Collapse Disorder")),
+                  textOutput("colony_collapse"),
+                  tags$head(tags$style("#colony_collapse{color: black;
+                                        font-size: 18px;
+                                        font-family: 'Georgia';
+                                        }"))
+                ),
+                sidebarPanel(id = "sidebar",
+                  h1(strong("Overall Questions")),
+                  textOutput("questions"),
+                  width = 8
+                )
               )
-    ),
+    )),
     fluidRow(
       leafletOutput("plot")
     )
