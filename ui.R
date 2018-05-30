@@ -21,6 +21,12 @@ my_ui <- dashboardPage(
     )
   ),
   dashboardBody(
+    tabItems(
+      tabItem(tabName = "home",
+              #img(src = "bee.JPG", width = 1300, height = 500)
+              img(src = "bee.JPG")
+              )
+    ),
     fluidRow(
       leafletOutput("plot")
     )

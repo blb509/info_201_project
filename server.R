@@ -7,6 +7,7 @@ library(shiny)
 library(leaflet)
 library(plotly)
 library(maps)
+library(tidyr)
 
 # Reads in data
 honey_production_data <- read.csv(file = "data/honeyproduction.csv", stringsAsFactors = FALSE)
