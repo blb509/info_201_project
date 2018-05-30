@@ -18,6 +18,13 @@ honey_production_data <- read.csv(file = "data/honeyproduction.csv", stringsAsFa
 
 #This makes the server for the apps
 my_server <- function(input, output, session) {
+  output$scatter <- renderPlot({
+    ggplot(honey_production_data) +
+      geom_point(aes(x = numcol, y = yieldpercol, color = year)) +
+      scale_y_continuous(name = "Pounds of Honey Yielded Per Colony", labels = comma) +
+      scale_x_continuous(name = " Number of Colonies", labels = comma) +
+      geom_smooth(aes(x = numcol, y = yieldpercol), model = lm, size = 1.5)
+  })
   
   #This is the bins or breaks used in the map
   bins  <- seq(min(honey_production_data$totalprod,na.rm=T), max(honey_production_data$totalprod,na.rm=T), l = 8)
