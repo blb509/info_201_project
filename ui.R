@@ -30,7 +30,8 @@ my_ui <- dashboardPage(
               ),
               fluidRow(
                 valueBoxOutput('avg'),
-                valueBoxOutput('yearselected')
+                valueBoxOutput('yearselected'),
+                valueBoxOutput("total")
               ))
     )
   ),

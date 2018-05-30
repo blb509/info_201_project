@@ -40,8 +40,15 @@ my_server <- function(input, output, session) {
                   fillColor = ~pal(states@data$totalprod),
                   weight = 1,
                   smoothFactor = 0.5,
+                  dashArray = "3",
                   color = "blue",
                   fillOpacity = 0.8,
+                  highlight = highlightOptions(
+                    weight = 5,
+                    color = "#666",
+                    dashArray = "",
+                    fillOpacity = 0.7,
+                    bringToFront = TRUE),
                   label = labels)%>%
      addLegend(pal = pal,
                values = states@data$totalprod,
@@ -59,7 +66,7 @@ my_server <- function(input, output, session) {
       summarise(TotalAvg = mean(totalprod))
     avg <- round(States$TotalAvg[1], digits = 2)
     valueBox(
-      paste0(avg), "Total Production for Selected Year", icon = icon("user-times"),
+      paste0(avg), "Average Production", icon = icon("product-hunt"),
       color = "red")
   })
   
@@ -67,6 +74,15 @@ my_server <- function(input, output, session) {
     valueBox(
       paste0(input$yearchoice), "Year Selected", icon = icon("calendar"),
       color = "blue")
+  })
+  
+  output$total <- renderValueBox({
+    States <- filter(honey_production_data, year == input$yearchoice) %>%
+      summarise(Total = sum(totalprod))
+    total <- round(States$Total[1], digits = 2)
+    valueBox(
+      paste0(total), "Total Production", icon = icon("product-hunt"),
+      color = "yellow")
   })
 }
   
