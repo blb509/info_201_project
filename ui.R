@@ -21,9 +21,16 @@ my_ui <- dashboardPage(
     )
   ),
   dashboardBody(
-    fluidRow(
-      leafletOutput("plot")
+  tabItems(
+    tabItem(tabName = "summary",
+      box(
+        title = "Amount of Colonies VS Honey Yield per Colony", solidHeader = TRUE,
+        background = "olive",
+        width = 12,
+        plotOutput("scatter", height = 400)
+      )
     )
+  )  
   ),
   skin = "yellow"
 )
