@@ -7,8 +7,16 @@ library(shiny)
 library(leaflet)
 library(geojsonio)
 library(scales)
+library(plotly)
+library(maps)
+library(tidyr)
+
 # Reads in data
 honey_production_data <- read.csv(file = "data/honeyproduction.csv", stringsAsFactors = FALSE)
+honey_production_data_long <- gather(honey_production_data,
+                                     key = data,
+                                     value = value,
+                                     numcol, yieldpercol, totalprod)
 
 my_server <- function(input, output, session) {
   map <- reactive({
@@ -33,7 +41,7 @@ my_server <- function(input, output, session) {
   })
   
   bins <- c(100000, 1000000, 5000000, 10000000, 20000000, 30000000, 40000000, 50000000)
-
+  
   map_viz <- reactive({
     
     # Filters the data so that it could be mapped correctly.
@@ -43,7 +51,7 @@ my_server <- function(input, output, session) {
       filter(year == input$obs_year)
     single_year$state <- state.name[match(single_year$state, state.abb)]
     states@data <- left_join(states@data, single_year, by = "state") 
-
+    
     # Orders the bins and colors that will be used for the map, and creates labels as well.
     pal <- colorBin("YlOrRd", domain = states@data$totalprod, bins = bins)
     labels <- sprintf(
@@ -62,7 +70,7 @@ my_server <- function(input, output, session) {
         id = "mapbox.light",
         accessToken = Sys.getenv('pk.eyJ1IjoiaGFyam90ZCIsImEiOiJjamhxajlxMHkwMnhyMzZwcHg0OXB4b
                                  TlmIn0.xCU7EJo0WQ1jW-CvwFhfGw'))
-      ) %>%  
+        ) %>%  
       addPolygons(
         fillColor = ~pal(states@data$totalprod),
         color = "white",
@@ -86,11 +94,11 @@ my_server <- function(input, output, session) {
       )
     
   })
-
+  
   output$country <- renderLeaflet(
     map_viz()
   )
-
+  
   output$graph_output <- renderPlot({
     ggplot(map(), mapping = aes(year, numcol, color = "red")) + 
       geom_point() +
@@ -100,9 +108,17 @@ my_server <- function(input, output, session) {
            title = "Colonies") + 
       theme(legend.position = "none")
   })
-
+  
   output$table <- renderTable({
     graph()
+  })
+  
+  output$scatter <- renderPlot({
+    ggplot(honey_production_data) +
+      geom_point(aes(x = numcol, y = yieldpercol, color = year)) +
+      scale_y_continuous(name = "Pounds of Honey Yielded Per Colony", labels = comma) +
+      scale_x_continuous(name = " Number of Colonies", labels = comma) +
+      geom_smooth(aes(x = numcol, y = yieldpercol), model = lm, size = 1.5)
   })
 }
 
