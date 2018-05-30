@@ -30,7 +30,6 @@ my_ui <- dashboardPage(
               tags$head(tags$style((" #sidebar {
                                           background-color: #FFD54C;
               }
-                                    
                                     "))),
               tags$head(tags$style((" #intro {color: black;
                                     font-size: 30px;
@@ -57,7 +56,11 @@ my_ui <- dashboardPage(
                 sidebarPanel(id = "sidebar",
                   h1(strong("Overall Questions")),
                   textOutput("questions"),
-                  width = 8
+                  width = 8,
+                  tags$head(tags$style("#questions{color: black;
+                                        font-size: 18px;
+                                       font-family: 'Georgia';
+                                       }"))
                 )
               )
     )),

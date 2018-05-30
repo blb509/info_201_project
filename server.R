@@ -29,7 +29,12 @@ my_server <- function(input, output, session) {
           reason is yet to be pinpointed. Researchers propose that anything from pesticides
           to the bees level of stress.')
   })
-  # output$questions <-
+  output$questions <- renderText({
+    paste("1.) How were honey prices and colonies affected by the Colony Collapse Disorder of 2006?",
+          "2.) Which states had the largest fluctuation in honey yield?",
+          "3.) Is there any relation between number of colonies and price per pound in a given year per state",
+          "4.) Is there a state that consistently produces more honey then the rest, if so why? How can other states replicate what this state is doing?", sep = "\n")
+    })
 }
 
 shinyServer(my_server)
