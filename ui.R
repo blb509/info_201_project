@@ -70,10 +70,10 @@ my_ui <- dashboardPage(
                 ),
                 sidebarPanel(id = "sidebar",
                   h1(strong("Overall Questions")),
-                  p(id = "sidebarText", "1.) How were honey prices and colonies affected by the Colony Collapse Disorder of 2006?",
-                      br(), br(), "2.) Which states had the largest fluctuation in honey yield?",
-                      br(), br(), "3.) Is there any relation between number of colonies and price per pound in a given year per state?",
-                      br(), br(), "4.) Is there a state that consistently produces more honey then the rest, if so why? How can other states replicate what this state is doing?"),
+                  p(id = "sidebarText", "How did the colony collapse disorder of 2006 affect honey production?",
+                      br(), br(), "How does environment affect honey production?",
+                      br(), br(), "Is there any relation between number of colonies and price per pound in a given year per state?",
+                      br(), br(), "Which state consistently produced more honey than the rest, how is it different than other states?"),
                   width = 8
                 )
               ),
