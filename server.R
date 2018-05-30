@@ -26,7 +26,6 @@ my_server <- function(input, output, session) {
       scale_x_continuous(name = " Number of Colonies", labels = comma) +
       geom_smooth(aes(x = numcol, y = yieldpercol), model = lm, size = 1.5)
   })
-  
 }
 
 shinyServer(my_server)
