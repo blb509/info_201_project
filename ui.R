@@ -67,9 +67,9 @@ my_ui <- dashboardPage(
             br(),
             br(),
             p(id = "about", "The United States Environmental Protection Agency Provided us
-              with great information about the Colony Collapse Disorder. It is also a great 
+              with information about the Colony Collapse Disorder. It is also a great 
               agency that has been taking action to protect pollinators since 2007. For more
-              information about the Colony Collapse Disorder, pollinator health concers and
+              information about the Colony Collapse Disorder, pollinator health concerns and
               various other pollination issues visit:", a("EPA", href = "https://www.epa.gov/pollinator-protection/colony-collapse-disorder"))
         )
       ),
@@ -153,10 +153,10 @@ my_ui <- dashboardPage(
             h1(strong("Colony Collapse Disorder")),
             p(id = "sidebarText", 'CCD or Colony Collapse Disorder is defined as "The sudden mass disappearance
                              of the majority of worker bees in a colony." In the winter of 2006 bee keepers
-                             reported an unsual high loss of bees from their hives yet found very few dead bees
-                             near the colony. Due to the substantal loss of worker bees hives that experienced CCD
-                             would die. Researchers have blamed The cause of CCD on anything from pesticides
-                             to the bees level of stress but the main reason is yet to be discoverd.')
+                             reported an unusual high loss of bees from their hives yet found very few dead bees
+                             near the colony. Due to the substantial loss of worker bees, hives that experienced CCD
+                             would die off. Researchers have blamed the cause of CCD on anything from pesticides
+                             to the bees level of stress but the main reason is still a mystery.')
           ),
           sidebarPanel(
             id = "sidebar",
@@ -177,9 +177,9 @@ my_ui <- dashboardPage(
             h1(strong("Why Bees?")),
             p(id = "sidebarText", "Why create a data visualization about honey production
               and bees? When it comes to bee's and honey they are both often overlooked 
-              and taken for granted. Many people do not realize the importance of bees let
+              and taken for granted. Many people do not realize the importance of bees, let
               alone honey. Pollination by honey bee colonies accounts for at least $15 billion
-              to the U.S. agriculture's value annually. Along with this honey has many different
+              of the U.S. agriculture's value annually. Along with this, honey has many different
               uses from a natural sweetener to a cure for sore throats and colds. With so much
               relying on honey bees it is important we keep these creatures healthy and safe."),
             width = 8
