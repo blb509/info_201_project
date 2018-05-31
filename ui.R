@@ -3,6 +3,7 @@
 ##########
 library(rbokeh)
 library(shiny)
+library(leaflet)
 library(shinydashboard)
 library(leaflet)
 library(maps)
@@ -11,20 +12,19 @@ library(scales)
 my_ui <- dashboardPage(
   dashboardHeader(title = "Honey Production"),
   dashboardSidebar(
-    sidebarMenu(
-      menuItem("Home", tabName = "home", icon = icon("home")),
-      menuItem("Nation", tabName = "nation", icon = icon("map"),
-               selectInput("datachoice", label = "Data",
-                           honey_production_data_long$data),
-               selectInput("yearchoice", label = "Year",
-                           honey_production_data_long$year)),
-      menuItem("State", tabName = "state", icon = icon("map-marker")),
-      conditionalPanel("input.sidebarmenu == 'state'", 
-                       sliderInput("obs_year", "Year:", value = 1, min = 1998, max = 2012, sep = ''), 
-                       selectInput("obs_state", "State:", state.name)),
-      menuItem("Summary", tabName = "summary", icon = icon("book")),
-      menuItem("Reference", tabName = "refer", icon = icon("graduation-cap")) 
-      )
+    sidebarMenu( id = "sidebarmenu",
+                 menuItem("Home", tabName = "home", icon = icon("home")),
+                 menuItem("Nation", tabName = "nation", icon = icon("map")),
+                 conditionalPanel("input.sidebarmenu == 'nation'",
+                                  selectInput("yearchoice", label = "Select Year", 
+                                              choices = honey_production_data$year)),
+                 menuItem("State", tabName = "state", icon = icon("map-marker")),
+                 conditionalPanel("input.sidebarmenu == 'state'", 
+                                  sliderInput("obs_year", "Year:", value = 1, min = 1998, max = 2012, sep = ''), 
+                                  selectInput("obs_state", "State:", state.name)),
+                 menuItem("Summary", tabName = "summary", icon = icon("book")),
+                 menuItem("Reference", tabName = "refer", icon = icon("graduation-cap")) 
+    )
   ),
   dashboardBody(
     tabItems(
@@ -135,11 +135,7 @@ my_ui <- dashboardPage(
               )
             )
             ))),
-  fluidRow(
-    leafletOutput("plot")
-  ),
   skin = "yellow"
             )
 
 shinyUI(my_ui)
-
