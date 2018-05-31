@@ -110,8 +110,26 @@ my_ui <- dashboardPage(
           background = "olive",
           width = 12,
           plotOutput("scatter", height = 400)
-        )
-      ),
+        ),
+        box(
+          p("Through our research and analysis of the data, we have found that honey bees and their
+            production of honey is affected by a number of factors. Those factors can at times combine
+            to cause CCD. The colony collapse disorder (CCD), is when a majority of worker bees leave
+            a hive and cause hive to fail. CCD was first given a name in 2006 when many farmers were
+            reporting that they were losing very high numbers of their hives, losses ranging from 30-90
+            percent of hives. Over time research has found that CCD is linked to a number of factors
+            such as change in habitat, new diseases, and pesticide poisoning. Extreme cases of CCD
+            caused honey production to decrease most in the years 2006 - 2008. We see this in that the
+            average of honey production from 1998 - 2005 being 4,481,717 pounds produced while from
+            2006 - 2012 the average production was 3,792,727 pounds. While CCD is an example of how
+            things can go wrong with honey production, Hawaii is an example of things going the right way.
+            Hawaii has had the highest yield ever with 136 pounds of honey per colony. It also has the
+            second highest yield ever as well and consistently has one of the highest yields every year.
+            This has much to do with Hawaii's climate and the origin of honey bees. Honey bees originated
+            in Europe when Europe had a tropical region. So Hawaii's tropical climate coupled with its
+            extreme plant diversity is the reason why it has such high yields and why states with similar
+            climates like Florida also consistently have high yields.")
+      )),
       tabItem(
         tabName = "home",
         img(src = "bee.JPG"),
@@ -165,7 +183,7 @@ my_ui <- dashboardPage(
               id = "sidebarText", "How did the colony collapse disorder of 2006 affect honey production?",
               br(), br(), "How does environment affect honey production?",
               br(), br(), "Is there any relation between number of colonies and price per pound in a given year per state?",
-              br(), br(), "Which state consistently produced more honey than the rest, how is it different than other states?",
+              br(), br(), "Which state consistently had the best yield, how is it different than other states?",
               br(), br(), br(), br(), br(), br()
             ),
             width = 8
