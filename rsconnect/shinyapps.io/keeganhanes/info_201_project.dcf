@@ -1,0 +1,12 @@
+name: info_201_project
+title: info_201_project
+username:
+account: keeganhanes
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 352005
+bundleId: 1403411
+url: https://keeganhanes.shinyapps.io/info_201_project/
+when: 1527798791.93289
+asMultiple: FALSE
+asStatic: FALSE

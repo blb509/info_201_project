@@ -1,0 +1,12 @@
+name: Honey_Production
+title: Honey_Production
+username:
+account: keeganhanes
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 351998
+bundleId: 1403391
+url: https://keeganhanes.shinyapps.io/Honey_Production/
+when: 1527798396.20188
+asMultiple: FALSE
+asStatic: FALSE

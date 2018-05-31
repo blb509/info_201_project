@@ -51,7 +51,7 @@ my_ui <- dashboardPage(
                              text-align: center;
                              ")),
         box(id = "sidebar",
-            img(src = "USDA.JPG", height = 100, width = 200),
+            img(src = "USDA.png", height = 100, width = 200),
             br(),
             br(),
             br(),
@@ -62,7 +62,7 @@ my_ui <- dashboardPage(
               can be found", a("HERE.", href = "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Bee_and_Honey/")),
             br(),
             br(),
-            img(src = "EPA.JPG", height = 100, width = 200),
+            img(src = "EPA.png", height = 100, width = 200),
             br(),
             br(),
             br(),
@@ -132,7 +132,7 @@ my_ui <- dashboardPage(
       )),
       tabItem(
         tabName = "home",
-        img(src = "bee.JPG"),
+        img(src = "bee.png"),
         tags$br(),
         tags$br(),
         tags$br(),
@@ -182,7 +182,7 @@ my_ui <- dashboardPage(
             p(
               id = "sidebarText", "How did the colony collapse disorder of 2006 affect honey production?",
               br(), br(), "How does environment affect honey production?",
-              br(), br(), "Is there any relation between number of colonies and price per pound in a given year per state?",
+              br(), br(), "What was the difference between the average production from 1998 - 2005 and 2006 - 2012 (post colony collapse disorder)?",
               br(), br(), "Which state consistently had the best yield, how is it different than other states?",
               br(), br(), br(), br(), br(), br()
             ),
@@ -205,11 +205,11 @@ my_ui <- dashboardPage(
           sidebarPanel(
             id = "sidebar",
             h1(strong("Resources")),
-            img(src = "USDA.JPG", height = 55, width = 110),
+            img(src = "USDA.png", height = 55, width = 110),
             a("USDA Honey Production", href = "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Bee_and_Honey/"),
             br(),
             br(),
-            img(src = "EPA.JPG", height = 55, width = 110),
+            img(src = "EPA.png", height = 55, width = 110),
             a("Colony Collapse Disorder", href = "https://www.epa.gov/pollinator-protection/colony-collapse-disorder")
           )
         )
