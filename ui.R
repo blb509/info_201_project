@@ -39,6 +39,41 @@ my_ui <- dashboardPage(
   dashboardBody(
     tabItems(
       tabItem(
+        tabName = "refer",
+        h1(id = "refer_page", "References"),
+        tags$head(tags$style("#refer_page{color: black;
+                              font-size: 72px;
+                              font-family: 'Georgia';
+                             }")),
+        tags$head(tags$style("#about{color: black;
+                             font-size: 18px;
+                             font-family: 'Georgia';
+                             text-align: center;
+                             ")),
+        box(id = "sidebar",
+            img(src = "USDA.JPG", height = 100, width = 200),
+            br(),
+            br(),
+            br(),
+            p(id = "about", "Thanks to the NASS, who has collected statistics
+              on the number of honey bee colonies and U.S. honey production for decades,
+              this data visualization was made possible. Working under the USDA, NASS
+              has conducted the 'Bee and Honey Inquiry Survey' since 1986. More information
+              can be found", a("HERE.", href = "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Bee_and_Honey/")),
+            br(),
+            br(),
+            img(src = "EPA.JPG", height = 100, width = 200),
+            br(),
+            br(),
+            br(),
+            p(id = "about", "The United States Environmental Protection Agency Provided us
+              with great information about the Colony Collapse Disorder. It is also a great 
+              agency that has been taking action to protect pollinators since 2007. For more
+              information about the Colony Collapse Disorder, pollinator health concers and
+              various other pollination issues visit:", a("EPA", href = "https://www.epa.gov/pollinator-protection/colony-collapse-disorder"))
+        )
+      ),
+      tabItem(
         tabName = "nation",
         box(
           title = "United States", solidHeader = TRUE,
@@ -106,8 +141,8 @@ my_ui <- dashboardPage(
                 down to the significant decline in honey bee colonies. Due to 
                 this, the honey industry has experienced large reductions in 
                 production and income. Our hope is that through this analysis 
-                we can better explain the reasons why the industry is struggling
-                and simultaneously raise awareness about a growing problem."),
+                we can take a deeper look into why the industry is struggling
+                and simultaneously raise awareness about an important issue."),
         tags$br(),
         tags$br(),
         tags$br(),
@@ -130,7 +165,8 @@ my_ui <- dashboardPage(
               id = "sidebarText", "How did the colony collapse disorder of 2006 affect honey production?",
               br(), br(), "How does environment affect honey production?",
               br(), br(), "Is there any relation between number of colonies and price per pound in a given year per state?",
-              br(), br(), "Which state consistently produced more honey than the rest, how is it different than other states?"
+              br(), br(), "Which state consistently produced more honey than the rest, how is it different than other states?",
+              br(), br(), br(), br(), br(), br()
             ),
             width = 8
           )
