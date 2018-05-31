@@ -174,8 +174,14 @@ my_ui <- dashboardPage(
         sidebarLayout(
           sidebarPanel(
             id = "sidebar",
-            h1(strong("Background")),
-            p(id = "sidebarText", ""),
+            h1(strong("Why Bees?")),
+            p(id = "sidebarText", "Why create a data visualization about honey production
+              and bees? When it comes to bee's and honey they are both often overlooked 
+              and taken for granted. Many people do not realize the importance of bees let
+              alone honey. Pollination by honey bee colonies accounts for at least $15 billion
+              to the U.S. agriculture's value annually. Along with this honey has many different
+              uses from a natural sweetener to a cure for sore throats and colds. With so much
+              relying on honey bees it is important we keep these creatures healthy and safe."),
             width = 8
           ),
           sidebarPanel(
